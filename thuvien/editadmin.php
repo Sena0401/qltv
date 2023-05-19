@@ -25,7 +25,6 @@ $row = mysqli_fetch_array($ketqua);
             <div class="sidebar-heading border-bottom bg-light"><img height="200px" width="200px" src="img/logo.png"></div>
             <div class="list-group list-group-flush">
                 <a class="bi bi-house-door-fill list-group-item list-group-item-action list-group-item-light p-3" href="home.php"> &nbspTrang Chủ</a>
-                <a class="bi bi-person-fill list-group-item list-group-item-action list-group-item-light p-3" href="#!"> &nbspUser</a>
                 <a class="bi bi-journal-plus list-group-item list-group-item-action list-group-item-light p-3" href="#!"> &nbspMượn Trả</a>
                 <a class="bi bi-book-half list-group-item list-group-item-action list-group-item-light p-3" href="#!"> &nbspSách</a>
                 <a class="bi bi-person-lines-fill list-group-item list-group-item-action list-group-item-light p-3" href="#!"> &nbspĐộc giả</a>
@@ -50,7 +49,7 @@ $row = mysqli_fetch_array($ketqua);
             <h1 class="text-center p-md-2">Chỉnh Sửa Thông Tin Đăng Nhập Vào Trang Web</h1>
 
 
-            <form class="p-md-3" action="Update_user.php" method="post">
+            <form class="p-md-3" action="Update_admin.php" method="post">
                 <div class="mb-3">
                     <label for="exampleInputMaNV" class="form-label">Mã nhân Viên</label>
                     <input  class="form-control" type="text" name="manv"  value="<?php echo $row['manv']; ?>">

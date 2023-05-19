@@ -5,4 +5,4 @@ $manv = $_GET['manv'];
 
 mysqli_query($connect, "delete from admin where manv='$manv'") ;
 
-header('location:user.php');
+header('location:admin.php');
