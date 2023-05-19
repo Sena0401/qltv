@@ -55,7 +55,6 @@
                             <th scope="col">UserName</th>
                             <th scope="col">Mã Nhân Viên</th>
                             <th scope="col">Password</th>
-                            <p class="text-decoration-none"></p>
                         </tr>
                     </thead>
                     <tbody>
@@ -82,6 +81,7 @@
                     </tbody>
                 </table>
             </div>
+            <!-- end content -->
         </div>
     </div>
     <!-- Bootstrap core JS-->
