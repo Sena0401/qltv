@@ -5,14 +5,18 @@ if (!$connect) {
 }
 mysqli_query($connect, "SET NAMES 'utf8'");
 
-$manv = $_POST['manv'];
-$username = $_POST['username'];
-$password = $_POST['password'];
+$masach = $_POST['masach'];
+$tensach = $_POST['tensach'];
+$matheloai = $_POST['matheloai'];
+$tacgia = $_POST['tacgia'];
+$manxb = $_POST['manxb'];
+$namxuatban = $_POST['namxuatban'];
+$hientrang = $_POST['hientrang'];
 
 if (isset($_POST["capnhat"])) {
-    $sql = "INSERT INTO admin VALUES ('$manv','$username','$password')";
+    $sql = "INSERT INTO sach VALUES ('$masach','$tensach','$matheloai','$tacgia','$manxb','$namxuatban','$hientrang')";
     $ketqua = mysqli_query($connect, $sql);
 }
 
 
-header('location:admin.php');
+header('location:book.php');

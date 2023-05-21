@@ -1,8 +1,10 @@
 <?php
 include('connect.php');
 
-$manv = $_GET['manv'];
+$masach = $_GET['masach'];
+$tensach = $_GET['tensach'];
 
-mysqli_query($connect, "delete from admin where manv='$manv'") ;
 
-header('location:admin.php');
+mysqli_query($connect, "DELETE FROM sach WHERE masach = '$masach'") ;
+
+header('location:book.php');

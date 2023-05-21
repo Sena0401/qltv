@@ -10,7 +10,7 @@ $username = $_POST['username'];
 $password = $_POST['password'];
 
 if (isset($_POST["capnhat"])) {
-    $sql = "INSERT INTO admin VALUES ('$manv','$username','$password')";
+    $sql = "INSERT INTO admin VALUES ('$username','$manv','$password')";
     $ketqua = mysqli_query($connect, $sql);
 }
 

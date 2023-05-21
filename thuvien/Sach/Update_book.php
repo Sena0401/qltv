@@ -1,12 +1,17 @@
 <?php
-   include("connect.php");
+include("connect.php");
 
-$username = $_POST['username'];
-$manv = $_POST['manv'];
-$password = $_POST['password'];
+$masach = $_POST['masach'];
+$tensach = $_POST['tensach'];
+$matheloai = $_POST['matheloai'];
+$tacgia = $_POST['tacgia'];
+$manxb = $_POST['manxb'];
+$namxuatban = $_POST['namxuatban'];
+$hientrang = $_POST['hientrang'];
 
 if (isset($_POST["capnhat"])) {
-    $query = "UPDATE admin SET username='$username', password ='$password' WHERE manv='$manv'";
+    $query = "UPDATE sach SET masach='$masach', tensach='$tensach', matheloai='$matheloai', tacgia='$tacgia',
+                              manxb='$manxb', namxuatban='$namxuatban', hientrang='$hientrang' WHERE masach='$masach'";
     $ketqua = mysqli_query($connect, $query);
 }
 
@@ -18,4 +23,3 @@ if ($ketqua) {
 }
 echo "window.location='book.php';";
 echo "</script>";
-?>

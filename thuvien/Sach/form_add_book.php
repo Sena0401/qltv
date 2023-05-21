@@ -32,12 +32,12 @@
                 </div>
                 <div class="mb-3">
                     <label for="exampleInputUsername" class="form-label">Tác Giả</label>
-                    <input class="form-control" type="text" name="Tacgia" placeholder="Tác Giả">
+                    <input class="form-control" type="text" name="tacgia" placeholder="Tác Giả">
                 </div>
                 <div class="mb-3">
                     <div class="control-group">
                         <label class="control-label" for="inputtheloai">Nhà Xuất Bản</label>
-                        <select class="form-select" name="manhaxuatban" >
+                        <select class="form-select" name="manxb" >
                             <option></option>
                             <?php
                             include("../connect.php");
@@ -55,7 +55,7 @@
                 </div>
                 <div class="mb-3">
                     <label for="exampleInputUsername" class="form-label">Tình Trạng</label>
-                    <input class="form-control" type="text" name="tinhtrang" placeholder="Tình Trạng">
+                    <input class="form-control" type="text" name="hientrang" placeholder="Hiện Trạng">
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>

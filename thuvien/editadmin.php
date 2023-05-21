@@ -51,12 +51,12 @@ $row = mysqli_fetch_array($ketqua);
 
             <form class="p-md-3" action="Update_admin.php" method="post">
                 <div class="mb-3">
-                    <label for="exampleInputMaNV" class="form-label">Mã nhân Viên</label>
-                    <input  class="form-control" type="text" name="manv"  value="<?php echo $row['manv']; ?>">
-                </div>
-                <div class="mb-3">
                     <label for="exampleInputUsername" class="form-label">UserName</label>
                     <input class="form-control" type="text" name="username" value="<?php echo $row['username']; ?>">
+                </div>
+                <div class="mb-3">
+                    <label for="exampleInputMaNV" class="form-label">Mã nhân Viên</label>
+                    <input  class="form-control" type="text" name="manv"  value="<?php echo $row['manv']; ?>">
                 </div>
                 <div class="mb-3">
                     <label for="exampleInputPassword" class="form-label">Password</label>

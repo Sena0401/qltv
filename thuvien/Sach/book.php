@@ -9,6 +9,7 @@
     <!-- Favicon-->
     <!-- Core theme CSS (includes Bootstrap)-->
     <link href="css/styles.css" rel="stylesheet" />
+    
 
 
     </style>
@@ -20,9 +21,9 @@
         <div class="border-end bg-white" id="sidebar-wrapper">
             <div class="sidebar-heading border-bottom bg-light"><img height="200px" width="200px" src="img/logo.png"></div>
             <div class="list-group list-group-flush">
-                <a class="bi bi-house-door-fill list-group-item list-group-item-action list-group-item-light p-3" href="../home.php"> &nbspTrang Chủ</a>
+                <a class="bi bi-house-door-fill list-group-item list-group-item-action list-group-item-light p-3 " href="../home.php"> &nbspTrang Chủ</a>
                 <a class="bi bi-person-fill list-group-item list-group-item-action list-group-item-light p-3" href="../admin.php"> &nbspUser</a>
-                <a class="bi bi-journal-plus list-group-item list-group-item-action list-group-item-light p-3" href="#!"> &nbspMượn Trả</a>
+                <a class="bi bi-journal-plus list-group-item list-group-item-action list-group-item-light p-3" href="../MUONTRA/vaymuon.php"> &nbspMượn Trả</a>
                 <a class="bi bi-book-half list-group-item list-group-item-action list-group-item-light p-3" href="#!"> &nbspSách</a>
                 <a class="bi bi-person-lines-fill list-group-item list-group-item-action list-group-item-light p-3" href="#!"> &nbspĐộc giả</a>
                 <a class="bi bi-info list-group-item list-group-item-action list-group-item-light p-3" href="#!"> &nbspAbout</a>
@@ -39,7 +40,7 @@
 
                     <div class="collapse navbar-collapse" id="navbarSupportedContent">
                         <ul class="navbar-nav ms-auto mt-2 mt-lg-0">
-                            <li class="nav-item "><a class="nav-link" href="logout.php">Đăng Xuất</a></li>
+                            <li class="nav-item "><a class="nav-link" href="../logout.php">Đăng Xuất</a></li>
 
 
                         </ul>
@@ -58,7 +59,7 @@
                 <table class="table table-bordered">
                     <thead>
                         <tr>
-                            <th class="text-center" scope="col">STT</th>
+                            <th class="text-center font-size-base" scope="col">STT</th>
                             <th scope="col">Mã Sách</th>
                             <th scope="col">Tên Sách</th>
                             <th scope="col">Thể Loại</th>
@@ -73,7 +74,7 @@
                         <tr>
                             <?php
                             include("../connect.php");
-                            $query = "SELECT * FROM sach,theloai, nhaxuatban WHERE sach.matheloai = theloai.matheloai AND nhaxuatban.manxb = sach.manxb";
+                            $query = "SELECT * FROM sach,theloai,nhaxuatban WHERE sach.matheloai = theloai.matheloai AND sach.manxb = nhaxuatban.manxb  ";
                             $ketqua = mysqli_query($connect, $query);
                             $stt = 1;
                             while ($row = mysqli_fetch_array($ketqua)) {
@@ -86,8 +87,8 @@
                                 echo "<td>" . $row["tennxb"] . "</td>";
                                 echo "<td>" . $row["namxuatban"] . "</td>";
                                 echo "<td>" . $row["hientrang"] . "</td>";
-                                echo "<td><center><a class=\"text-decoration-none bi bi-trash3 link-danger \" href=\"deleteadmin.php?manv=" . $row["masach"] . "\"> Xoá</a> </center> </td>";
-                                echo "<td><center><a class=\"text-decoration-none bi bi-pen\" href=\"editadmin.php?manv=" . $row["masach"] . "\"> Cập nhật</a></center></td>";
+                                echo "<td><center><a class=\"text-decoration-none bi bi-trash3 link-danger \" href=\"delete_book.php?masach=" . $row["masach"] . "\"> Xoá</a> </center> </td>";
+                                echo "<td><center><a class=\"text-decoration-none bi bi-pen\" href=\"edit_book.php?masach=" . $row["masach"] . "\"> Cập nhật</a></center></td>";
                                 echo "</tr>";
                                 $stt++;
                             }

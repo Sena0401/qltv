@@ -25,7 +25,7 @@
             <div class="list-group list-group-flush">
                 <a class="bi bi-house-door-fill list-group-item list-group-item-action list-group-item-light p-3" href="home.php"> &nbspTrang Chủ</a>
                 <a class="bi bi-person-fill list-group-item list-group-item-action list-group-item-light p-3" href="admin.php"> &nbspUser</a>
-                <a class="bi bi-journal-plus list-group-item list-group-item-action list-group-item-light p-3" href="#!"> &nbspMượn Trả</a>
+                <a class="bi bi-journal-plus list-group-item list-group-item-action list-group-item-light p-3" href="MUONTRA/vaymuon.php"> &nbspMượn Trả</a>
                 <a class="bi bi-book-half list-group-item list-group-item-action list-group-item-light p-3" href="Sach/book.php"> &nbspSách</a>
                 <a class="bi bi-person-lines-fill list-group-item list-group-item-action list-group-item-light p-3" href="#!"> &nbspĐộc giả</a>
                 <a class="bi bi-info list-group-item list-group-item-action list-group-item-light p-3" href="#!"> &nbspAbout</a>

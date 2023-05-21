@@ -11,9 +11,9 @@
 include('connect.php');
 
 
-$manv = $_GET['manv'];
+$masach = $_GET['masach'];
 
-$query = "SELECT * FROM admin WHERE manv ='$manv'";
+$query = "SELECT * FROM sach WHERE masach ='$masach'";
 $ketqua = mysqli_query($connect, $query);
 $row = mysqli_fetch_array($ketqua);
 ?>
@@ -46,23 +46,65 @@ $row = mysqli_fetch_array($ketqua);
                     </div>
                 </div>
             </nav>
-            <h1 class="text-center p-md-2">Chỉnh Sửa Thông Tin Đăng Nhập Vào Trang Web</h1>
 
+            <!-- content -->
+            <form class="p-md-3" action="Update_book.php" method="post">
+                <h3 class="text-center">Chỉnh Sửa Thông Tin Sách</h3>
 
-            <form class="p-md-3" action="Update_admin.php" method="post">
-                <div class="mb-3">
-                    <label for="exampleInputMaNV" class="form-label">Mã nhân Viên</label>
-                    <input  class="form-control" type="text" name="manv"  value="<?php echo $row['manv']; ?>">
+                <div class="mb-2">
+                    <label for="exampleInputMaNV" class="form-label">Mã Sách</label>
+                    <input class="form-control" type="text" name="masach" placeholder="Mã Sách" value="<?php echo $row['masach']; ?>">
                 </div>
                 <div class="mb-3">
-                    <label for="exampleInputUsername" class="form-label">UserName</label>
-                    <input class="form-control" type="text" name="username" value="<?php echo $row['username']; ?>">
+                    <label for="exampleInputUsername" class="form-label">Tên Sách</label>
+                    <input class="form-control" type="text" name="tensach" placeholder="Tên Sách" value="<?php echo $row['tensach']; ?>">
                 </div>
                 <div class="mb-3">
-                    <label for="exampleInputPassword" class="form-label">Password</label>
-                    <input class="form-control" type="text" name="password" value="<?php echo $row['password']; ?>">
+                    <div class="control-group">
+                        <label class="control-label" for="inputtheloai">Tên Thể Loại</label>
+                        <select class="form-select" name="matheloai" >
+                            <option></option>
+                            <?php
+                            include("../connect.php");
+                            $cat_query = mysqli_query($connect, "select * from theloai");
+                            while ($cat_row = mysqli_fetch_array($cat_query)) {
+                            ?>
+                                <option value="<?php echo $cat_row['matheloai']; ?>"><?php echo $cat_row['tentheloai']; ?></option>
+                            <?php  } ?>
+                        </select>
+                    </div>
                 </div>
-                <input class="btn btn-primary" type="submit" name="capnhat" value="Cập Nhật Lớp">
+                <div class="mb-3">
+                    <label for="exampleInputUsername" class="form-label">Tác Giả</label>
+                    <input class="form-control" type="text" name="tacgia" placeholder="Tác Giả" value="<?php echo $row['tacgia']; ?>">
+                </div>
+                <div class="mb-3">
+                    <div class="control-group">
+                        <label class="control-label" for="inputtheloai">Nhà Xuất Bản</label>
+                        <select class="form-select" name="manxb">
+                            <option></option>
+                            <?php
+                            include("../connect.php");
+                            $cat_query = mysqli_query($connect, "select * from nhaxuatban");
+                            while ($cat_row = mysqli_fetch_array($cat_query)) {
+                            ?>
+                                <option value="<?php echo $cat_row['manxb']; ?>"><?php echo $cat_row['tennxb']; ?></option>
+                            <?php  } ?>
+                        </select>
+                    </div>
+                </div>
+                <div class="mb-3">
+                    <label for="exampleInputUsername" class="form-label">Năm Xuất Bản</label>
+                    <input class="form-control" type="text" name="namxuatban" placeholder="Năm Xuất Bản" value="<?php echo $row['namxuatban']; ?>">
+                </div>
+                <div class="mb-3">
+                    <label for="exampleInputUsername" class="form-label">Tình Trạng</label>
+                    <input class="form-control" type="text" name="hientrang" placeholder="Hiện Trạng" value="<?php echo $row['hientrang']; ?>">
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <input class="btn btn-primary" type="submit" name="capnhat">
+                </div>
             </form>
 </body>
 <!-- Bootstrap core JS-->
