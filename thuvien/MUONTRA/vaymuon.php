@@ -104,9 +104,9 @@
                                 <tr>
                                     <?php
                                     include("../connect.php");
-                                    $query = "SELECT * FROM sach,theloai,nhaxuatban WHERE sach.matheloai = theloai.matheloai AND sach.manxb = nhaxuatban.manxb  ";
+                                    $query = "SELECT * FROM sach,theloai,nhaxuatban,docgia
+                                    WHERE sach.matheloai = theloai.matheloai AND sach.manxb = nhaxuatban.manxb   ";
                                     $ketqua = mysqli_query($connect, $query);
-                                    $stt = 1;
                                     while ($row = mysqli_fetch_array($ketqua)) {
                                         echo "<tr>";
                                         echo "<td>" . $row["masach"] . "</td>";
@@ -118,9 +118,10 @@
                                         echo "<td>" . $row["hientrang"] . "</td>";
 
                                         // checkbox
-                                        echo "<td  width=\"20\"><center><input class=\"uniform_on\" name=\"selector[]\" type=\"checkbox\"" . $row["hientrang"] . "\"> </center> </td>";
+                                        echo "<td  width=\"20\"><center><input class=\"uniform_on\" name=\"selector[]\" type=\"checkbox\"" . $row["madg"] . "\"> </center> </td>";
 
                                         echo "</tr>";
+                                    
                                     }
                                     ?>
 
