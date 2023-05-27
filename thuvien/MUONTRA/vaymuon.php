@@ -25,7 +25,7 @@
                 <a class="bi bi-person-fill list-group-item list-group-item-action list-group-item-light p-3" href="../admin.php"> &nbspUser</a>
                 <a class="bi bi-journal-plus list-group-item list-group-item-action list-group-item-light p-3" href="vaymuon.php"> &nbspMượn Trả</a>
                 <a class="bi bi-book-half list-group-item list-group-item-action list-group-item-light p-3" href="../Sach/book.php"> &nbspSách</a>
-                <a class="bi bi-person-lines-fill list-group-item list-group-item-action list-group-item-light p-3" href="#!"> &nbspĐộc giả</a>
+                <a class="bi bi-person-lines-fill list-group-item list-group-item-action list-group-item-light p-3" href="../DocGia"> &nbspĐộc giả</a>
                 <a class="bi bi-info list-group-item list-group-item-action list-group-item-light p-3" href="#!"> &nbspAbout</a>
             </div>
         </div>
@@ -49,106 +49,77 @@
             </nav>
 
             <!-- Page content-->
-            <form action="" method="post">
-
+            <form action="muon.php" method="post">
                 <div class="container-fluid">
                     <h1 class="text-center">Danh Sách Mượn Sách</h1>
                     <!-- Muon -->
-                    <form class="p-md-3 mt-2" action="muon.php" method="post">
-                        <div class="mb">
-                            <div class="control-group">
-                                <label class="control-label" for="inputtheloai">Tên Người Mượn</label>
-                                <select class="form-select" name="matheloai">
-                                    <option></option>
-                                    <?php
-                                    include("../connect.php");
-                                    $cat_query = mysqli_query($connect, "select * from docgia");
-                                    while ($cat_row = mysqli_fetch_array($cat_query)) {
-                                    ?>
-                                        <option value="<?php echo $cat_row['madg']; ?>"><?php echo $cat_row['tendg']; ?></option>
-                                    <?php  } ?>
-                                </select>
-                            </div>
-                        </div>
-                        <div class="mb-3 ">
-                            <div class="control-group">
-                                <label class="control-label" for="inputngaytra">Ngày Trả</label>
-
-                                <input type="date" class="form-control range-low-today " placeholder="Ngày Trả" name="ngaytra" />
-                            </div>
-                            <input class="btn btn-primary mt-1" type="submit" value="Mượn" name="capnhat">
-
-                        </div>
-                        <div class="modal-footer">
-                        </div>
-
-                        <!--Muon -->
-
-                        <br>
-                        <table class="table table-bordered">
-                            <thead>
-                                <tr>
-                                    <th scope="col">Mã Sách</th>
-                                    <th scope="col">Tên Sách</th>
-                                    <th scope="col">Thể Loại</th>
-                                    <th scope="col">Tác Giả</th>
-                                    <th scope="col">Nhà Xuất Bản</th>
-                                    <th scope="col">Năm Xuất bản</th>
-                                    <th scope="col">Hiện trạng</th>
-                                    <th scope="col">Mượn</th>
+                    <div class="control-group">
+                        <label class="control-label" for="inputtheloai">Tên Người Mượn</label>
+                        <select class="form-select" name="matheloai">
+                            <option></option>
+                            <?php
+                            include("../connect.php");
+                            $cat_query = mysqli_query($connect, "select * from docgia");
+                            while ($cat_row = mysqli_fetch_array($cat_query)) {
+                            ?>
+                                <option value="<?php echo $cat_row['madg']; ?>"><?php echo $cat_row['tendg']; ?></option>
+                            <?php  } ?>
+                        </select>
+                    </div>
+                    <div class="control-group">
+                        <label class="control-label" for="inputngaytra">Ngày Trả</label>
+                        <input type="date" class="form-control " placeholder="Ngày Trả" name="ngaytra" />
+                    </div>
+                    <div class="modal-footer">
+                    </div>
+                    <br>
+                    <table class="table table-bordered">
+                        <thead>
+                            <tr>
+                                <th scope="col">Mã Sách</th>
+                                <th scope="col">Tên Sách</th>
+                                <th scope="col">Thể Loại</th>
+                                <th scope="col">Tác Giả</th>
+                                <th scope="col">Nhà Xuất Bản</th>
+                                <th scope="col">Năm Xuất bản</th>
+                                <th scope="col">Hiện trạng</th>
+                                <th scope="col">Mượn</th>
 
 
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <?php
-                                    include("../connect.php");
-                                    $query = "SELECT * FROM sach,theloai,nhaxuatban,docgia
-                                    WHERE sach.matheloai = theloai.matheloai AND sach.manxb = nhaxuatban.manxb   ";
-                                    $ketqua = mysqli_query($connect, $query);
-                                    while ($row = mysqli_fetch_array($ketqua)) {
-                                        echo "<tr>";
-                                        echo "<td>" . $row["masach"] . "</td>";
-                                        echo "<td>" . $row["tensach"] . "</td>";
-                                        echo "<td>" . $row["tentheloai"] . "</td>";
-                                        echo "<td>" . $row["tacgia"] . "</td>";
-                                        echo "<td>" . $row["tennxb"] . "</td>";
-                                        echo "<td>" . $row["namxuatban"] . "</td>";
-                                        echo "<td>" . $row["hientrang"] . "</td>";
-                                    ?>
-                                        <td width="20">
-                                            <input id="" class="uniform_on" name="selector[]" type="checkbox" value="<?php echo $id; ?>">
-                                        </td>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <?php
+                                include("../connect.php");
+                                $query = "SELECT * FROM sach,theloai,nhaxuatban
+                                    WHERE sach.matheloai = theloai.matheloai AND sach.manxb = nhaxuatban.manxb";
+                                $ketqua = mysqli_query($connect, $query);
+                                while ($row = mysqli_fetch_array($ketqua)) {
+                                    echo "<tr>";
+                                    echo "<td>" . $row["masach"] . "</td>";
+                                    echo "<td>" . $row["tensach"] . "</td>";
+                                    echo "<td>" . $row["tentheloai"] . "</td>";
+                                    echo "<td>" . $row["tacgia"] . "</td>";
+                                    echo "<td>" . $row["tennxb"] . "</td>";
+                                    echo "<td>" . $row["namxuatban"] . "</td>";
+                                    echo "<td>" . $row["hientrang"] . "</td>";
+                                ?>
+                                    <td><input class="btn btn-info" type="submit" name="muon" value="Mượn"></td>
 
-                                </tr>
-                            <?php } ?>
+                            </tr>
+                        <?php } ?>
 
 
-                            </tbody>
-                        </table>
+                        </tbody>
+                    </table>
                 </div>
-            </form>
+                <!--Muon -->
 
-            <!-- end content -->
+                <!-- end content -->
         </div>
     </div>
     </form>
-    <script>
-        $(".uniform_on").change(function() {
-            var max = 3;
-            if ($(".uniform_on:checked").length == max) {
-
-                $(".uniform_on").attr('disabled', 'disabled');
-                alert('3 Books are allowed per borrow');
-                $(".uniform_on:checked").removeAttr('disabled');
-
-            } else {
-
-                $(".uniform_on").removeAttr('disabled');
-            }
-        })
-    </script>
     <!-- Bootstrap core JS-->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
     <!-- Core theme JS-->

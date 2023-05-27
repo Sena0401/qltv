@@ -1,28 +1,24 @@
 <?php
 include('../connect.php');
-
-$id = $_POST['selector'];
+if (!$connect) {
+    exit("Kết nói cơ sở dữ liệu thất bại");
+}
 $madg = $_POST['madg'];
 $ngaytra  = $_POST['ngaytra'];
+$mamt  = 1;
+$masach = $_POST['masach'];
+$mactmt = random_int(1, 100);
 
-if ($id == '') {
-    echo "alert (\"Mượn không thành công\";";
 
-    header("location: muontra.php");
-?>
-	
-
-	<?php } else {
-    mysqli_query($connect, "insert into muontra (madg,ngaymuon,ngaytra) values ('$madg',NOW(),'$ngaytra')");
-    $query = mysqli_query($connect, "select * from muontra order by mamt DESC");
-    $row = mysqli_fetch_array($query);
+if ($_POST == ['muon']) {
+    //    insert bảng mượn trả
+    mysqli_query($connect, "INSERT INTO `muontra`(`mamt`, `madg`, `ngaymuon`, `ngaytra`, `masach`) 
+                            VALUES ('$mamt','$madg','NOW()',''$ngaytra'','$masach')");
     $mamt  = $row['mamt'];
 
-
-
-    $N = count($id);
-    for ($i = 0; $i < $N; $i++) {
-        mysqli_query($connect, "insert chitietmuontra (masach,mamt,trangthai) values('$id[$i]','$mamt','pending')");
-    }
-    header("location: vaymuon.php");
+    //    insert bảng chi tiết mượn trả
+    mysqli_query($connect, "INSERT INTO `chitietmuontra`(`mactmt`, `masach`, `mamt`, `trangthai`, `ngaytra`) 
+                            VALUES ('$mactmt' ,'$masach','$mamt','Đã Mượn','$ngaytra')");
 }
+header("location: vaymuon.php");
+?>
