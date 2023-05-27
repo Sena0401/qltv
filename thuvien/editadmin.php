@@ -25,9 +25,8 @@ $row = mysqli_fetch_array($ketqua);
             <div class="sidebar-heading border-bottom bg-light"><img height="200px" width="200px" src="img/logo.png"></div>
             <div class="list-group list-group-flush">
                 <a class="bi bi-house-door-fill list-group-item list-group-item-action list-group-item-light p-3" href="home.php"> &nbspTrang Chủ</a>
-                <a class="bi bi-journal-plus list-group-item list-group-item-action list-group-item-light p-3" href="#!"> &nbspMượn Trả</a>
                 <a class="bi bi-book-half list-group-item list-group-item-action list-group-item-light p-3" href="#!"> &nbspSách</a>
-                <a class="bi bi-person-lines-fill list-group-item list-group-item-action list-group-item-light p-3" href="#!"> &nbspĐộc giả</a>
+                <a class="bi bi-person-lines-fill list-group-item list-group-item-action list-group-item-light p-3" href="docgia/docgia.php"> &nbspĐộc giả</a>
                 <a class="bi bi-info list-group-item list-group-item-action list-group-item-light p-3" href="#!"> &nbspAbout</a>
             </div>
         </div>
