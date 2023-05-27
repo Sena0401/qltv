@@ -49,14 +49,14 @@
             </nav>
 
             <!-- Page content-->
-            <div class="container-fluid">
+            <div class="container-fluid ">
                 <h1 class="text-center">Danh Sách Mục Sách</h1>
                 <!-- add user -->
                 <?php include("form_add_book.php")  ?>
                 <!-- add user -->
 
                 <br>
-                <table class="table table-bordered">
+                <table class="table table-bordered mt-3">
                     <thead>
                         <tr>
                             <th class="text-center font-size-base" scope="col">STT</th>
@@ -87,9 +87,10 @@
                                 echo "<td>" . $row["tennxb"] . "</td>";
                                 echo "<td>" . $row["namxuatban"] . "</td>";
                                 echo "<td>" . $row["hientrang"] . "</td>";
-                                echo "<td><center><a class=\"text-decoration-none bi bi-trash3 link-danger \" href=\"delete_book.php?masach=" . $row["masach"] . "\"> Xoá</a> </center> </td>";
-                                echo "<td><center><a class=\"text-decoration-none bi bi-pen\" href=\"edit_book.php?masach=" . $row["masach"] . "\"> Cập nhật</a></center></td>";
-                                echo "</tr>";
+                                echo "<td><center><a class=\"text-decoration-none bi bi-trash3 btn btn-danger \" href=\"delete_book.php?masach=" . $row["masach"] . "\"> Xoá</a> </center> </td>";
+                                echo "<td><center><a class=\"text-decoration-none bi bi-pen btn btn-info\" href=\"edit_book.php?masach=" . $row["masach"] . "\"> Cập nhật</a></center></td>";
+                                include("../MUONTRA/vaymuon.php");
+
                                 $stt++;
                             }
                             ?>
