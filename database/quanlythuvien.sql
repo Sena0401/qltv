@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Máy chủ: 127.0.0.1
--- Thời gian đã tạo: Th5 27, 2023 lúc 03:37 AM
+-- Thời gian đã tạo: Th5 27, 2023 lúc 12:46 PM
 -- Phiên bản máy phục vụ: 10.4.28-MariaDB
 -- Phiên bản PHP: 8.0.28
 
@@ -43,20 +43,6 @@ INSERT INTO `admin` (`username`, `manv`, `password`) VALUES
 -- --------------------------------------------------------
 
 --
--- Cấu trúc bảng cho bảng `chitietmuontra`
---
-
-CREATE TABLE `chitietmuontra` (
-  `mactmt` int(10) NOT NULL,
-  `masach` varchar(10) NOT NULL,
-  `mamt` varchar(10) NOT NULL,
-  `trangthai` varchar(20) NOT NULL,
-  `ngaytra` date NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_vietnamese_ci;
-
--- --------------------------------------------------------
-
---
 -- Cấu trúc bảng cho bảng `docgia`
 --
 
@@ -72,8 +58,9 @@ CREATE TABLE `docgia` (
 --
 
 INSERT INTO `docgia` (`madg`, `tendg`, `diachidg`, `sothe`) VALUES
-('dg01', 'Trần Minh Luân', '107/68/45 Hoàng Văn Thu,P.An Cư, Ninh Kiều, Cần Thơ', 1234567890),
-('dg02', 'Trần Văn Cường', 'Tổ 5, Ấp Mỹ Lược, Thiện Trung, Cái Bè, Tiền Giang', 1234567891);
+('dg01', 'Trần Minh Thiện', '107/68/45 Hoàng Văn Thu,P.An Cư, Ninh Kiều, Cần Thơ', 1234567891),
+('dg02', 'Trần Văn Cường', 'Tổ 5, Ấp Mỹ Lược, Thiện Trung, Cái Bè, Tiền Giang', 1234567891),
+('dg03', 'Huyền Di', 'Xã 1, Ấp 2, Huyện 3, Tỉnh 4', 1234567890);
 
 -- --------------------------------------------------------
 
@@ -82,18 +69,21 @@ INSERT INTO `docgia` (`madg`, `tendg`, `diachidg`, `sothe`) VALUES
 --
 
 CREATE TABLE `muontra` (
-  `mamt` int(10) NOT NULL,
+  `mamt` varchar(10) NOT NULL,
   `madg` varchar(10) CHARACTER SET utf8 COLLATE utf8_vietnamese_ci NOT NULL,
   `ngaymuon` date NOT NULL,
-  `ngaytra` date NOT NULL
+  `ngaytra` date NOT NULL,
+  `masach` varchar(10) CHARACTER SET utf8 COLLATE utf8_vietnamese_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Đang đổ dữ liệu cho bảng `muontra`
 --
 
-INSERT INTO `muontra` (`mamt`, `madg`, `ngaymuon`, `ngaytra`) VALUES
-(1, 'dg01', '2023-05-22', '2023-06-01');
+INSERT INTO `muontra` (`mamt`, `madg`, `ngaymuon`, `ngaytra`, `masach`) VALUES
+('$mamt', '$madg', '2023-05-27', '0000-00-00', '$masach'),
+('mt01', 'dg02', '0000-00-00', '2023-06-01', 'sach01'),
+('mt02', 'dg01', '0000-00-00', '2023-06-01', 'sach01');
 
 -- --------------------------------------------------------
 
@@ -159,7 +149,7 @@ CREATE TABLE `sach` (
 --
 
 INSERT INTO `sach` (`masach`, `tensach`, `matheloai`, `tacgia`, `manxb`, `namxuatban`, `hientrang`) VALUES
-('2', 'How Psychology Works', 'tamly', 'Jo Hemmings,DK', 'nxb02', '2020', 'Mới');
+('sach01', 'How Psychology Works', 'tamly', 'Jo Hemmings,DK', 'nxb02', '2020', 'Mới');
 
 -- --------------------------------------------------------
 
@@ -191,12 +181,6 @@ INSERT INTO `theloai` (`matheloai`, `tentheloai`) VALUES
 --
 ALTER TABLE `admin`
   ADD PRIMARY KEY (`username`);
-
---
--- Chỉ mục cho bảng `chitietmuontra`
---
-ALTER TABLE `chitietmuontra`
-  ADD PRIMARY KEY (`mactmt`);
 
 --
 -- Chỉ mục cho bảng `docgia`
