@@ -72,9 +72,9 @@
                         </div>
                         <div class="mb-3 ">
                             <div class="control-group">
-                                <label class="control-label"  for="inputngaytra">Ngày Trả</label>
+                                <label class="control-label" for="inputngaytra">Ngày Trả</label>
 
-                                <input type="date" class="form-control range-low-today " placeholder="Ngày Trả"  name="ngaytra" />
+                                <input type="date" class="form-control range-low-today " placeholder="Ngày Trả" name="ngaytra" />
                             </div>
                             <input class="btn btn-primary mt-1" type="submit" value="Mượn" name="capnhat">
 
@@ -116,29 +116,44 @@
                                         echo "<td>" . $row["tennxb"] . "</td>";
                                         echo "<td>" . $row["namxuatban"] . "</td>";
                                         echo "<td>" . $row["hientrang"] . "</td>";
-
-                                        // checkbox
-                                        echo "<td  width=\"20\"><center><input class=\"uniform_on\" name=\"selector[]\" type=\"checkbox\"" . $row["madg"] . "\"> </center> </td>";
-
-                                        echo "</tr>";
-                                    
-                                    }
                                     ?>
+                                        <td width="20">
+                                            <input id="" class="uniform_on" name="selector[]" type="checkbox" value="<?php echo $id; ?>">
+                                        </td>
 
                                 </tr>
-                                </tr>
+                            <?php } ?>
+
+
                             </tbody>
                         </table>
                 </div>
             </form>
+
             <!-- end content -->
         </div>
     </div>
     </form>
+    <script>
+        $(".uniform_on").change(function() {
+            var max = 3;
+            if ($(".uniform_on:checked").length == max) {
+
+                $(".uniform_on").attr('disabled', 'disabled');
+                alert('3 Books are allowed per borrow');
+                $(".uniform_on:checked").removeAttr('disabled');
+
+            } else {
+
+                $(".uniform_on").removeAttr('disabled');
+            }
+        })
+    </script>
     <!-- Bootstrap core JS-->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
     <!-- Core theme JS-->
     <script src="js/scripts.js"></script>
+
 </body>
 
 </html>

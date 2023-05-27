@@ -6,12 +6,17 @@ $madg = $_POST['madg'];
 $ngaytra  = $_POST['ngaytra'];
 
 if ($id == '') {
-    header("location: vaymuon.php");
+    echo "alert (\"Mượn không thành công\";";
 
+    header("location: muontra.php");
+?>
+	
+
+	<?php } else {
     mysqli_query($connect, "insert into muontra (madg,ngaymuon,ngaytra) values ('$madg',NOW(),'$ngaytra')");
     $query = mysqli_query($connect, "select * from muontra order by mamt DESC");
     $row = mysqli_fetch_array($query);
-    $mamt  =$row['mamt'];
+    $mamt  = $row['mamt'];
 
 
 
