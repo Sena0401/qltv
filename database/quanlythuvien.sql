@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Máy chủ: 127.0.0.1
--- Thời gian đã tạo: Th5 24, 2023 lúc 06:30 AM
+-- Thời gian đã tạo: Th5 27, 2023 lúc 03:37 AM
 -- Phiên bản máy phục vụ: 10.4.28-MariaDB
 -- Phiên bản PHP: 8.0.28
 
@@ -83,7 +83,7 @@ INSERT INTO `docgia` (`madg`, `tendg`, `diachidg`, `sothe`) VALUES
 
 CREATE TABLE `muontra` (
   `mamt` int(10) NOT NULL,
-  `madocgia` varchar(10) CHARACTER SET utf8 COLLATE utf8_vietnamese_ci NOT NULL,
+  `madg` varchar(10) CHARACTER SET utf8 COLLATE utf8_vietnamese_ci NOT NULL,
   `ngaymuon` date NOT NULL,
   `ngaytra` date NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
@@ -92,7 +92,7 @@ CREATE TABLE `muontra` (
 -- Đang đổ dữ liệu cho bảng `muontra`
 --
 
-INSERT INTO `muontra` (`mamt`, `madocgia`, `ngaymuon`, `ngaytra`) VALUES
+INSERT INTO `muontra` (`mamt`, `madg`, `ngaymuon`, `ngaytra`) VALUES
 (1, 'dg01', '2023-05-22', '2023-06-01');
 
 -- --------------------------------------------------------
@@ -159,8 +159,7 @@ CREATE TABLE `sach` (
 --
 
 INSERT INTO `sach` (`masach`, `tensach`, `matheloai`, `tacgia`, `manxb`, `namxuatban`, `hientrang`) VALUES
-('1', 'Thiện và Em', 'kinhte', 'Thiện', 'nxb01', '1999', 'New'),
-('sach01', 'How Psychology Works', 'tamly', 'Jo Hemmings,DK', 'nxb02', '2020', 'Mới');
+('2', 'How Psychology Works', 'tamly', 'Jo Hemmings,DK', 'nxb02', '2020', 'Mới');
 
 -- --------------------------------------------------------
 
