@@ -9,7 +9,7 @@
     <!-- Favicon-->
     <!-- Core theme CSS (includes Bootstrap)-->
     <link href="css/styles.css" rel="stylesheet" />
-    
+
 
 
     </style>
@@ -89,7 +89,7 @@
                                 echo "<td>" . $row["hientrang"] . "</td>";
                                 echo "<td><center><a class=\"text-decoration-none bi bi-trash3 btn btn-danger \" href=\"delete_book.php?masach=" . $row["masach"] . "\"> Xoá</a> </center> </td>";
                                 echo "<td><center><a class=\"text-decoration-none bi bi-pen btn btn-info\" href=\"edit_book.php?masach=" . $row["masach"] . "\"> Cập nhật</a></center></td>";
-                                include("../MUONTRA/vaymuon.php");
+                                echo "<td><center><a class=\"text-decoration-none bi bi-journal-plus btn btn-success\" href=\"../MUONTRA/vaymuon.php?masach=" . $row["masach"] . "\">Mượn Sách</a></center></td>";
 
                                 $stt++;
                             }
