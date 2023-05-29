@@ -1,4 +1,4 @@
-<button type="button" id="sidebarToggle" class="bi bi-person-add btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+<button type="button" id="sidebarToggle" class="bi bi-patch-plus btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
     Thêm Sách</button>
 <!-- Modal -->
 <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">

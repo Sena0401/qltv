@@ -55,7 +55,7 @@
 
 
                 <br>
-                <table class="table table-bordered">
+                <table class="mt-2 table table-bordered">
 
                     <thead>
 
@@ -79,8 +79,8 @@
                                 echo "<td>" . $row["manv"] . "</td>";
                                 echo "<td>" . $row["username"] . "</td>";
                                 echo "<td>" . $row["password"] . "</td>";
-                                echo "<td><center><a class=\"text-decoration-none bi bi-trash3 link-danger \" href=\"deleteadmin.php?manv=" . $row["manv"] . "\"> Xoá</a> </center> </td>";
-                                echo "<td><center><a class=\"text-decoration-none bi bi-pen\" href=\"editadmin.php?manv=" . $row["manv"] . "\"> Cập nhật</a></center></td>";
+                                echo "<td><center><a class=\"text-decoration-none bi bi-trash3 btn btn-danger \" href=\"deleteadmin.php?manv=" . $row["manv"] . "\"> Xoá</a> </center> </td>";
+                                echo "<td><center><a class=\"text-decoration-none bi bi-pen btn btn-info\" href=\"editadmin.php?manv=" . $row["manv"] . "\"> Cập nhật</a></center></td>";
                                 echo "</tr>";
                                 $stt++;
                             }

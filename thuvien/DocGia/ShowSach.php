@@ -63,6 +63,8 @@
                             <th scope="col">Tên Độc Giả</th>
                             <th scope="col">Ngày Mượn</th>
                             <th scope="col">Ngày Trả</th>
+                            <th scope="col">Trạng Thái</th>
+
 
 
                         </tr>
@@ -80,6 +82,8 @@
                                 echo "<td>" . $row["tendg"] . "</td>";
                                 echo "<td>" . $row["ngaymuon"] . "</td>";
                                 echo "<td>" . $row["ngaytra"] . "</td>";
+                                echo "<td>" . $row["trangthai"] . "</td>";
+                                echo "<td><center><a class=\"text-decoration-none bi bi-journal-minus btn btn-danger \" href=\"Trasach.php?mamt=" . $row["mamt"] . "\"> Trả Sách</a> </center> </td>";
                             }
                             ?>
                         </tr>

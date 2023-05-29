@@ -14,7 +14,7 @@ $masach = $_POST['masach'];
 if (isset($_POST["muon"])) {
     //    insert bảng mượn trả
 
-    $sql = "INSERT INTO muontra VALUES('$mamt','$madg',NOW(),'$ngaytra','$masach')";
+    $sql = "INSERT INTO muontra VALUES('$mamt','$madg',NOW(),'$ngaytra','$masach','Đã Mượn')";
     $ketqua = mysqli_query($connect, $sql);
 
 

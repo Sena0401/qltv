@@ -35,7 +35,7 @@ $row = mysqli_fetch_array($ketqua);
             <!-- Top navigation-->
             <nav class="navbar navbar-expand-lg navbar-light bg-light border-bottom">
                 <div class="container-fluid">
-                    <button class="btn btn-primary" id="sidebarToggle">Toggle Menu</button>
+                    <button class="btn btn-primary bi bi-list" id="sidebarToggle"></button>
                     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
                     <div class="collapse navbar-collapse" id="navbarSupportedContent">
                         <ul class="navbar-nav ms-auto mt-2 mt-lg-0">
@@ -102,7 +102,7 @@ $row = mysqli_fetch_array($ketqua);
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                    <input class="btn btn-primary" type="submit" name="capnhat">
+                    <input class="btn btn-primary ms-2" type="submit" name="capnhat">
                 </div>
             </form>
 </body>
