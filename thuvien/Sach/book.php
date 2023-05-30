@@ -8,8 +8,7 @@
     <meta name="author" content="" />
     <!-- Favicon-->
     <!-- Core theme CSS (includes Bootstrap)-->
-    <link href="css/styles.css" rel="stylesheet" />
-
+    <link rel="stylesheet" href="css/styles.css">
 
 
     </style>
@@ -37,28 +36,62 @@
                     <button class="bi bi-list btn btn-primary" id="sidebarToggle"></button>
                     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
 
+
                     <div class="collapse navbar-collapse" id="navbarSupportedContent">
                         <ul class="navbar-nav ms-auto mt-2 mt-lg-0">
                             <li class="nav-item "><a class="nav-link" href="../logout.php">Đăng Xuất</a></li>
-
-
                         </ul>
                     </div>
+
                 </div>
+
             </nav>
+
 
             <!-- Page content-->
             <div class="container-fluid ">
                 <h1 class="text-center">Danh Sách Mục Sách</h1>
+
                 <!-- add user -->
                 <?php include("form_add_book.php")  ?>
-                <!-- add user -->
+                <?php
+                include("../connect.php");
+
+                // Truy vấn
+                if (isset($_REQUEST["search"])) {
+                    $search = addslashes($_GET['search']);
+                    if (empty($search)) {
+                        echo  "alert ('Vui lòng nhập vào ô tìm kiếm!!');";
+                    } else {
+                        $key = $_GET['search'];
+                        $query = "SELECT * FROM sach,theloai,nhaxuatban WHERE tensach LIKE '%$search%' and sach.matheloai = theloai.matheloai AND sach.manxb = nhaxuatban.manxb ";
+                    }
+                //     $num = mysqli_num_rows($ketqua);
+                //    echo " <h5> Có" .$num ."kết quả được tìm thấy với từ khóa</h5> ".$search;
+
+                } else {
+                    $query = "SELECT * FROM sach,theloai,nhaxuatban WHERE sach.matheloai = theloai.matheloai AND sach.manxb = nhaxuatban.manxb";
+                }
+                $ketqua = mysqli_query($connect, $query);
+
+                $stt = 1;
+
+                ?>
+
+                <form class="" action="" method="get">
+                    <div class="ms-5 input-group rounded float-end w-25">
+                        <input type="text" name="search" class="form-control" placeholder="Search" />
+                        <input class="bi bi-search btn btn-primary" type="submit" value="Tìm">
+                        <input value="Tất Cả" class="btn btn-success" type="button" onclick="window.location.href='book.php'">
+
+                    </div>
+                </form>
 
                 <br>
+
                 <table class="table table-bordered mt-3">
                     <thead>
                         <tr>
-                            <th class="text-center font-size-base" scope="col">STT</th>
                             <th scope="col">Mã Sách</th>
                             <th scope="col">Tên Sách</th>
                             <th scope="col">Thể Loại</th>
@@ -66,19 +99,13 @@
                             <th scope="col">Nhà Xuất Bản</th>
                             <th scope="col">Năm Xuất bản</th>
                             <th scope="col">Hiện trạng</th>
-
                         </tr>
                     </thead>
                     <tbody>
                         <tr>
                             <?php
-                            include("../connect.php");
-                            $query = "SELECT * FROM sach,theloai,nhaxuatban WHERE sach.matheloai = theloai.matheloai AND sach.manxb = nhaxuatban.manxb  ";
-                            $ketqua = mysqli_query($connect, $query);
-                            $stt = 1;
                             while ($row = mysqli_fetch_array($ketqua)) {
                                 echo "<tr>";
-                                echo "<td><center>" . $stt . "</center></td>";
                                 echo "<td>" . $row["masach"] . "</td>";
                                 echo "<td>" . $row["tensach"] . "</td>";
                                 echo "<td>" . $row["tentheloai"] . "</td>";
@@ -89,8 +116,6 @@
                                 echo "<td><center><a class=\"text-decoration-none bi bi-trash3 btn btn-danger \" href=\"delete_book.php?masach=" . $row["masach"] . "\"> Xoá</a> </center> </td>";
                                 echo "<td><center><a class=\"text-decoration-none bi bi-pen btn btn-info\" href=\"edit_book.php?masach=" . $row["masach"] . "\"> Cập nhật</a></center></td>";
                                 echo "<td><center><a class=\"text-decoration-none bi bi-journal-plus btn btn-success\" href=\"../MUONTRA/vaymuon.php?masach=" . $row["masach"] . "\">Mượn Sách</a></center></td>";
-
-                                $stt++;
                             }
                             ?>
                         </tr>

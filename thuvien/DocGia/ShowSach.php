@@ -51,10 +51,17 @@
 
             <!-- Page content-->
             <div class="container-fluid ">
-                <h1 class="text-center">Danh Sách Mục Sách</h1>
-
-
-                <br>
+                <h1 class="text-center">Danh Sách Mượn Sách</h1>
+                <?php
+                include("connect.php");
+                $query = "SELECT * FROM sach,docgia,muontra WHERE muontra.madg = docgia.madg AND sach.masach = muontra.masach";
+                $ketqua = mysqli_query($connect, $query);
+                $num = mysqli_num_rows($ketqua);
+                $sum_mt = "SELECT count(mamt) as sum_mt FROM muontra ";
+                $query = mysqli_query($connect, $sum_mt);
+                $mt = mysqli_fetch_array($query);
+                echo " <h3> Tổng số sách mượn là ". $mt['sum_mt'] ."</h3>" ;
+                ?>
                 <table class="table table-bordered mt-3">
                     <thead>
                         <tr>
@@ -72,9 +79,7 @@
                     <tbody>
                         <tr>
                             <?php
-                            include("connect.php");
-                            $query = "SELECT * FROM sach,docgia,muontra WHERE muontra.madg = docgia.madg AND sach.masach = muontra.masach";
-                            $ketqua = mysqli_query($connect, $query);
+
                             while ($row = mysqli_fetch_array($ketqua)) {
                                 echo "<tr>";
                                 echo "<td>" . $row["mamt"] . "</td>";

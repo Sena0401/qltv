@@ -53,13 +53,37 @@
                 <!-- add user -->
                 <?php include('form_add_docgia.php'); ?>
                 <a class="text-decoration-none bi bi-journal-text btn btn-success" href="ShowSach.php"> Sách Đã Mượn</a>
-                <!-- add user -->
+                <?php
+                include("../connect.php");
 
-                <br>
+                // Truy vấn
+                if (isset($_REQUEST["search"])) {
+                    $search = addslashes($_GET['search']);
+                    if (empty($search)) {
+                        echo "Hãy Nhập Dữ Liệu";
+                    } else {
+                        $key = $_GET['search'];
+                        $query = "SELECT * FROM docgia WHERE tendg LIKE '%$search%' ";
+                    }
+                } else {
+                    $query = "SELECT * FROM docgia";
+                }
+                $ketqua = mysqli_query($connect, $query);
+                $num = mysqli_num_rows($ketqua);
+                $stt = 1;
+
+                ?>
+
+                <form class="searchbar" action="" method="get">
+                    <div class="input-group rounded float-end w-25">
+                        <input type="text" name="search" class="form-control" placeholder="Search" />
+                        <input class="bi bi-search btn btn-primary" type="submit" value="Tìm">
+                        <input value="Tất Cả" class="btn btn-success" type="button" onclick="window.location.href='docgia.php'">
+                    </div>
+                </form>
                 <table class="table table-bordered mt-3">
                     <thead>
                         <tr>
-                            <th class="text-center font-size-base" scope="col">STT</th>
                             <th scope="col">Mã Độc Giả</th>
                             <th scope="col">Tên Độc Giả</th>
                             <th scope="col">Địa Chỉ</th>
@@ -70,13 +94,9 @@
                     <tbody>
                         <tr>
                             <?php
-                            include("../connect.php");
-                            $query = "SELECT * FROM docgia";
-                            $ketqua = mysqli_query($connect, $query);
-                            $stt = 1;
+
                             while ($row = mysqli_fetch_array($ketqua)) {
                                 echo "<tr>";
-                                echo "<td><center>" . $stt . "</center></td>";
                                 echo "<td>" . $row["madg"] . "</td>";
                                 echo "<td>" . $row["tendg"] . "</td>";
                                 echo "<td>" . $row["diachidg"] . "</td>";
