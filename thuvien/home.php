@@ -5,8 +5,9 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
     <meta name="description" content="" />
-   <!-- Core theme CSS (includes Bootstrap)-->
+    <!-- Core theme CSS (includes Bootstrap)-->
     <link href="css/styles.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
 
 
     </style>
@@ -57,9 +58,7 @@
             $dg = mysqli_fetch_array($query);
 
             ?>
-            <div class="container-fluid">
-                <img class="row text-center figure-img" style="margin-left: 450px;" width="25%" src="img/logo.png" alt="logo">
-            </div>
+
             <div class="d-flex justify-content-center">
                 <div class="card me-5 bg-success bg-gradient" style="width: 24rem;">
                     <img src="img/img1.jpg" class="card-img-top">
@@ -77,7 +76,23 @@
                     </div>
                 </div>
             </div>
+            <div class="container-fluid mt-5">
+                <div class="d-flex justify-content-around ">
+                    
+                    <div class="">
+                        <div class="d-flex bg-info bg-gradient">
+                            <div class="mt-1 ms-1  row">
+                                <h2>3</h2>
 
+                                <h2>BOOK</h2>
+                            </div>
+                            <div class="mt-2" style="width: 100px; height: 150px;"><i class="bi bi-journal-text" style="font-size:100px; color:gray;"></i>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
         </div>
     </div>
 

@@ -9,7 +9,7 @@
     /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
     float: left;
     width: 100%;
-    padding: 50px 0;
+    padding: 129px 0;
 }
 
 .banner-sec {
@@ -60,25 +60,25 @@
     margin-bottom: 30px;
     font-weight: 800;
     font-size: 30px;
-    color: #DE6262;
+    color: #f84b4b;
 }
 
 .login-sec h2:after {
     content: " ";
     width: 100px;
     height: 5px;
-    background: #FEB58A;
+    background: #ed722c;
     display: block;
     margin-top: 20px;
     border-radius: 3px;
     margin-left: auto;
-    margin-right: auto
+    margin-right: auto;
 }
 
 .btn-login {
     background: #DE6262;
     color: #fff;
-    font-weight: 600;
+    font-weight: 00;
 }
 
 .banner-text {

@@ -66,8 +66,6 @@
                         $key = $_GET['search'];
                         $query = "SELECT * FROM sach,theloai,nhaxuatban WHERE tensach LIKE '%$search%' and sach.matheloai = theloai.matheloai AND sach.manxb = nhaxuatban.manxb ";
                     }
-                //     $num = mysqli_num_rows($ketqua);
-                //    echo " <h5> Có" .$num ."kết quả được tìm thấy với từ khóa</h5> ".$search;
 
                 } else {
                     $query = "SELECT * FROM sach,theloai,nhaxuatban WHERE sach.matheloai = theloai.matheloai AND sach.manxb = nhaxuatban.manxb";
@@ -83,7 +81,6 @@
                         <input type="text" name="search" class="form-control" placeholder="Search" />
                         <input class="bi bi-search btn btn-primary" type="submit" value="Tìm">
                         <input value="Tất Cả" class="btn btn-success" type="button" onclick="window.location.href='book.php'">
-
                     </div>
                 </form>
 
