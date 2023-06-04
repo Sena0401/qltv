@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Máy chủ: 127.0.0.1
--- Thời gian đã tạo: Th5 27, 2023 lúc 12:46 PM
+-- Thời gian đã tạo: Th6 04, 2023 lúc 01:51 PM
 -- Phiên bản máy phục vụ: 10.4.28-MariaDB
 -- Phiên bản PHP: 8.0.28
 
@@ -59,7 +59,6 @@ CREATE TABLE `docgia` (
 
 INSERT INTO `docgia` (`madg`, `tendg`, `diachidg`, `sothe`) VALUES
 ('dg01', 'Trần Minh Thiện', '107/68/45 Hoàng Văn Thu,P.An Cư, Ninh Kiều, Cần Thơ', 1234567891),
-('dg02', 'Trần Văn Cường', 'Tổ 5, Ấp Mỹ Lược, Thiện Trung, Cái Bè, Tiền Giang', 1234567891),
 ('dg03', 'Huyền Di', 'Xã 1, Ấp 2, Huyện 3, Tỉnh 4', 1234567890);
 
 -- --------------------------------------------------------
@@ -73,17 +72,16 @@ CREATE TABLE `muontra` (
   `madg` varchar(10) CHARACTER SET utf8 COLLATE utf8_vietnamese_ci NOT NULL,
   `ngaymuon` date NOT NULL,
   `ngaytra` date NOT NULL,
-  `masach` varchar(10) CHARACTER SET utf8 COLLATE utf8_vietnamese_ci NOT NULL
+  `masach` varchar(10) CHARACTER SET utf8 COLLATE utf8_vietnamese_ci NOT NULL,
+  `trangthai` varchar(20) CHARACTER SET utf8 COLLATE utf8_vietnamese_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Đang đổ dữ liệu cho bảng `muontra`
 --
 
-INSERT INTO `muontra` (`mamt`, `madg`, `ngaymuon`, `ngaytra`, `masach`) VALUES
-('$mamt', '$madg', '2023-05-27', '0000-00-00', '$masach'),
-('mt01', 'dg02', '0000-00-00', '2023-06-01', 'sach01'),
-('mt02', 'dg01', '0000-00-00', '2023-06-01', 'sach01');
+INSERT INTO `muontra` (`mamt`, `madg`, `ngaymuon`, `ngaytra`, `masach`, `trangthai`) VALUES
+('mt03', 'dg03', '2023-05-29', '2023-06-02', 'sach01', 'Đã Trả');
 
 -- --------------------------------------------------------
 
@@ -149,7 +147,31 @@ CREATE TABLE `sach` (
 --
 
 INSERT INTO `sach` (`masach`, `tensach`, `matheloai`, `tacgia`, `manxb`, `namxuatban`, `hientrang`) VALUES
-('sach01', 'How Psychology Works', 'tamly', 'Jo Hemmings,DK', 'nxb02', '2020', 'Mới');
+('sach01', 'How Psychology Works', 'kinhte', 'Jo Hemmings,DK', 'nxb02', '2020', 'Mới'),
+('sach03', 'Harry Potter và hòn đá phù thủy', 'tthuyet', ' J.K.Rowling', 'nxb01', '2017', 'Mới'),
+('sach04', 'Harry Potter và phòng chứa bí mật', 'tthuyet', ' J.K.Rowling', 'nxb01', '2017', 'Mới'),
+('sach05', 'Harry Potter và tên tù ngục Azkaban', 'tthuyet', ' J.K.Rowling', 'nxb01', '2017', 'Mới'),
+('sach06', 'Harry Potter và Hội Phượng Hoàng', 'tthuyet', ' J.K.Rowling', 'nxb01', '2017', 'Mới'),
+('sach07', 'Harry Potter và hoàng tử lai', 'tthuyet', ' J.K.Rowling', 'nxb01', '2017', 'Mới'),
+('sach08', 'Harry Potter và bảo bối tử thần', 'tthuyet', ' J.K.Rowling', 'nxb01', '2017', 'Mới'),
+('sach09', 'Harry Potter và đứa trẻ bị nguyền rủa', 'tthuyet', ' J.K.Rowling', 'nxb01', '2017', 'Mới'),
+('sach10', 'To Kill a Mockingbird(Giết Con Chim Nhại)', 'tthuyet', 'Nelle Harper', 'nxb02', '2019', 'Cũ'),
+('sach11', 'Chiến binh cầu vồng', 'vhhd', 'Andrea Hirata', 'nxb01', '2016', 'Cũ'),
+('sach12', 'The Alchemist( Nhà Giả Kim)', 'tly', 'Paulo Coelho', 'nxb01', '1988', 'Cũ'),
+('sach13', 'Chúng Ta Quyết Định Như Thế Nào?', 'tamly', ' Jonah Lehrer', 'nxb02', '2016', 'Mới'),
+('sach14', 'Phi Lý Một Cách Hợp Lý', 'tamly', ' Dan Ariely', 'nxb02', '2016', 'Cũ'),
+('sach15', 'Nghệ Thuật Tư Duy Rành Mạch ', 'tamly', 'Rolf Dobelli', 'nxb02', '2022', 'Mới'),
+('sach16', 'Thiên Tài Bên Trái, Kẻ Điên Bên Phải', 'tamly', 'Cao Minh', 'nxb01', '1999', 'Mới'),
+('sach17', 'Thám Tử Lừng Danh Conan 100', 'ttranh', 'Gosho Aoyama', 'nxb01', '2022', 'Mới'),
+('sach18', 'Bảy viên ngọc rồng', 'ttranh', 'Toriyama Akira', 'nxb01', '2017', 'Cũ'),
+('sach19', 'Doraemon', 'ttranh', 'Fujiko Fujio', 'nxb01', '2019', 'Mới'),
+('sach20', 'Dế Mèn phiêu lưu kí', 'vhtn', 'Tô Hoài', 'nxb01', '2017', 'Cũ'),
+('sach21', 'Đất rừng phương Nam', 'vhtn', 'Đoàn Giỏi', 'nxb01', '2006', 'Cũ'),
+('sach22', 'Kính Vạn Hoa', 'vhtn', 'Nguyễn Nhật Ánh', 'nxb01', '2017', 'Cũ'),
+('sach23', 'Truyện Kiều', 'th', 'Nguyễn Du', 'nxb01', '2002', 'Cũ'),
+('sach24', 'Nhật kí trong tù', 'th', 'Hồ Chí Minh', 'nxb01', '1998', 'Mới'),
+('sach25', 'Từ ấy', 'th', 'Tố Hữu', 'nxb01', '1999', 'Mới'),
+('sach26', 'Thơ Thơ', 'th', 'Xuân Diệu', 'nxb01', '1938', 'Cũ');
 
 -- --------------------------------------------------------
 
@@ -169,8 +191,12 @@ CREATE TABLE `theloai` (
 INSERT INTO `theloai` (`matheloai`, `tentheloai`) VALUES
 ('kinhte', 'Kinh Tế'),
 ('tamly', 'Tâm Lý'),
+('th', 'thơ'),
+('ttham', 'Trinh Thám'),
 ('tthuyet', 'Tiểu Thuyết'),
-('ttranh', 'Truyện Tranh');
+('ttranh', 'Truyện Tranh'),
+('vhhd', 'văn học hiện đại'),
+('vhtn', 'văn học thiếu nhi');
 
 --
 -- Chỉ mục cho các bảng đã đổ
@@ -180,7 +206,8 @@ INSERT INTO `theloai` (`matheloai`, `tentheloai`) VALUES
 -- Chỉ mục cho bảng `admin`
 --
 ALTER TABLE `admin`
-  ADD PRIMARY KEY (`username`);
+  ADD PRIMARY KEY (`manv`),
+  ADD KEY `username` (`username`);
 
 --
 -- Chỉ mục cho bảng `docgia`
