@@ -18,13 +18,19 @@
     <div class="d-flex" id="wrapper">
         <!-- Sidebar-->
         <div class="border-end bg-white" id="sidebar-wrapper">
-            <div class="sidebar-heading border-bottom bg-light"><img height="200px" width="200px" src="img/logo.png"></div>
+            <div class="sidebar-heading border-bottom bg-light"><img height="200px" width="200px" src="img/logo.png">
+            </div>
             <div class="list-group list-group-flush">
-                <a class="bi bi-house-door-fill list-group-item list-group-item-action list-group-item-light p-3 " href="../home.php"> &nbspTrang Chủ</a>
-                <a class="bi bi-person-fill list-group-item list-group-item-action list-group-item-light p-3" href="../admin.php"> &nbspUser</a>
-                <a class="bi bi-book-half list-group-item list-group-item-action list-group-item-light p-3" href="book.php"> &nbspSách</a>
-                <a class="bi bi-person-lines-fill list-group-item list-group-item-action list-group-item-light p-3" href="../DocGia/docgia.php"> &nbspĐộc giả</a>
-                <a class="bi bi-info list-group-item list-group-item-action list-group-item-light p-3" href="#!"> &nbspAbout</a>
+                <a class="bi bi-house-door-fill list-group-item list-group-item-action list-group-item-light p-3 "
+                    href="../home.php"> &nbspTrang Chủ</a>
+                <a class="bi bi-person-fill list-group-item list-group-item-action list-group-item-light p-3"
+                    href="../admin.php"> &nbspUser</a>
+                <a class="bi bi-book-half list-group-item list-group-item-action list-group-item-light p-3"
+                    href="book.php"> &nbspSách</a>
+                <a class="bi bi-person-lines-fill list-group-item list-group-item-action list-group-item-light p-3"
+                    href="../DocGia/docgia.php"> &nbspĐộc giả</a>
+                <a class="bi bi-info list-group-item list-group-item-action list-group-item-light p-3" href="#!">
+                    &nbspAbout</a>
             </div>
         </div>
         <!-- Page content wrapper-->
@@ -34,7 +40,10 @@
             <nav class="navbar navbar-expand-lg navbar-light bg-light border-bottom">
                 <div class="container-fluid">
                     <button class="bi bi-list btn btn-primary" id="sidebarToggle"></button>
-                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                        aria-expanded="false" aria-label="Toggle navigation"><span
+                            class="navbar-toggler-icon"></span></button>
 
 
                     <div class="collapse navbar-collapse" id="navbarSupportedContent">
@@ -53,7 +62,6 @@
                 <h1 class="text-center">Danh Sách Mục Sách</h1>
 
                 <!-- add user -->
-                <?php include("form_add_book.php")  ?>
                 <?php
                 include("../connect.php");
 
@@ -61,7 +69,7 @@
                 if (isset($_REQUEST["search"])) {
                     $search = addslashes($_GET['search']);
                     if (empty($search)) {
-                        echo  "alert ('Vui lòng nhập vào ô tìm kiếm!!');";
+                        echo "alert ('Vui lòng nhập vào ô tìm kiếm!!');";
                     } else {
                         $key = $_GET['search'];
                         $query = "SELECT * FROM sach,theloai,nhaxuatban WHERE tensach LIKE '%$search%' and sach.matheloai = theloai.matheloai AND sach.manxb = nhaxuatban.manxb ";
@@ -80,11 +88,12 @@
                     <div class="ms-5 input-group rounded float-end w-25">
                         <input type="text" name="search" class="form-control" placeholder="Search" />
                         <input class="bi bi-search btn btn-primary" type="submit" value="Tìm">
-                        <input value="Tất Cả" class="btn btn-success" type="button" onclick="window.location.href='book.php'">
+                        <input value="Tất Cả" class="btn btn-success" type="button"
+                            onclick="window.location.href='book.php'">
                     </div>
                 </form>
+                <?php include("form_add_book.php") ?>
 
-                <br>
 
                 <table class="table table-bordered mt-3">
                     <thead>
