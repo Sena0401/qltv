@@ -114,6 +114,7 @@
                                 echo "<td>" . $row["sothe"] . "</td>";
                                 echo "<td><center><a class=\"text-decoration-none bi bi-person-x btn btn-danger \" href=\"delete_docgia.php?madg=" . $row["madg"] . "\"> Xoá</a> </center> </td>";
                                 echo "<td><center><a class=\"text-decoration-none bi bi-person-gear btn btn-info\" href=\"edit_docgia.php?madg=" . $row["madg"] . "\"> Cập nhật</a></center></td>";
+                                echo "<td><center><a class=\"text-decoration-none bi bi-journal-text btn btn-warning\" href=\"../MUONTRA/damuon.php?madg=" . $row["madg"] . "\"> Sách Đã Mượn</a></center></td>";
 
                                 $stt++;
                             }

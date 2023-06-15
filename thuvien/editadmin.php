@@ -61,7 +61,7 @@ $row = mysqli_fetch_array($ketqua);
                     <label for="exampleInputPassword" class="form-label">Password</label>
                     <input class="form-control" type="text" name="password" value="<?php echo $row['password']; ?>">
                 </div>
-                <input class="btn btn-primary" type="submit" name="capnhat" value="Cập Nhật Lớp">
+                <input class="btn btn-primary" type="submit" name="capnhat" value="Cập Nhật Admin">
             </form>
 </body>
 <!-- Bootstrap core JS-->

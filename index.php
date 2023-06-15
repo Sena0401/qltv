@@ -26,18 +26,18 @@
                     <!-- login -->
                     <form class="login-form" method="POST">
                         <div class="form-group">
-                            <label for="exampleInputEmail" class="text-uppercase">Username</label>
+                            <label for="exampleInputEmail" class="text-uppercase">TÊN ĐĂNG NHẬP</label>
                             <input type="text" name="username" class="form-control" placeholder="">
 
                         </div>
                         <div class="form-group">
-                            <label for="exampleInputPassword" class="text-uppercase">Password</label>
+                            <label for="exampleInputPassword" class="text-uppercase">MẬT KHẨU</label>
                             <input type="password" name="password" class="form-control" placeholder="">
                         </div>
 
 
                         <div class="form-check">
-                            <button name="submit" type="submit" class="btn btn-login float-right ">Login</button>
+                            <button name="submit" type="submit" class="btn btn-login float-right ">ĐĂNG NHẬP</button>
 
                         </div>
                         <?php
